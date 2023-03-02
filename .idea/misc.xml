@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/jcg30/AndroidStudioProjects/material/app/src/main/res/layout/activity_main.xml" value="0.11413043478260869" />
+        <entry key="..\:/Users/jcg30/AndroidStudioProjects/material/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/jcg30/AndroidStudioProjects/material/app/src/main/res/layout/api.xml" value="0.22" />
+        <entry key="..\:/Users/jcg30/AndroidStudioProjects/material/app/src/main/res/layout/camera.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/jcg30/AndroidStudioProjects/material/app/src/main/res/layout/dialog_update.xml" value="0.1" />
         <entry key="..\:/Users/jcg30/AndroidStudioProjects/material/app/src/main/res/layout/list_row_main.xml" value="0.1" />
       </map>

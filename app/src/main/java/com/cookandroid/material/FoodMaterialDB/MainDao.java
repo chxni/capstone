@@ -28,4 +28,10 @@ public interface MainDao
 
     @Query("SELECT * FROM `Food Material`")
     List<MainData> getAll();
+
+    @Query("SELECT * FROM `Food Material` WHERE sOnOff = 1")
+    List<MainData> getOn();
+
+//    @Query("SELECT mName FROM `Food Material` WHERE sOnOff = 'true'")
+//    List<MainData> getOn();
 }

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cookandroid.material.FoodMaterialDB.MainData;
 import com.cookandroid.material.FoodMaterialDB.RoomDB;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>
@@ -25,6 +26,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>
     private List<MainData> dataList;
     private Activity context;
     private RoomDB database;
+
+    private List<String> onList;            //등록된 성분 받아오는 리스트
 
     public MainAdapter(MainActivity context, List<MainData> dataList)
     {
@@ -46,6 +49,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>
     {
         final MainData data = dataList.get(position);
         database = RoomDB.getInstance(context);
+
         holder.matName.setText(data.getmName());
         holder.matOnOff.setChecked(data.getsOnOff());
 
@@ -56,9 +60,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>
 
                 if (holder.matOnOff.isChecked()) {
                     database.mainDao().switch_update(true, sID);
+                    //userDB.userDao().insert();
+                    //onList.add(data.getmName());            //기피성분에 등록되면 리스트에 추가
                 }
                 else{
                     database.mainDao().switch_update(false, sID);
+                    //onList.remove(data.getmName());         //기피성분에서 등록 제외되면 리스트에서 삭제
                 }
             }
         });
@@ -95,7 +102,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>
                     {
                         dialog.dismiss();
                         String uText = editText.getText().toString().trim();
-
+                        //수정된 성분으로 리스트도 수정
                         database.mainDao().update(sID, uText);
 
                         dataList.clear();
@@ -113,6 +120,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>
             public void onClick(View v)
             {
                 MainData mainData = dataList.get(holder.getAdapterPosition());
+                //성분목록 및 데이터베이스에서 삭제되면 리스트에서도 제거
 
                 database.mainDao().delete(mainData);
 
